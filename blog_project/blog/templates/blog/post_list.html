@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Blog Pessoal</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
+        .post { background: white; margin: 20px 0; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .titulo { color: #333; font-size: 24px; }
+        .tags { color: #666; font-style: italic; }
+        a { text-decoration: none; color: #007bff; }
+        .btn { background: #007bff; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Posts Recentes</h1>
+    <a href="{% url 'post_create' %}" class="btn">Novo Post</a>
+    {% for post in posts %}
+        <div class="post">
+            <h2 class="titulo"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.content|truncatewords:20 }}</p>
+            <small>Por {{ post.author }} em {{ post.created_at|date:"d/m/Y" }}</span></small>
+        </div>
+    {% endfor %}
+</body>
+</html>

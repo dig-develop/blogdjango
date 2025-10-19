@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+    <style> /* Copie o CSS de cima */ </style>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <small>Por {{ post.author }} em {{ post.created_at|date:"d/m/Y" }}</small>
+    <a href="{% url 'post_list' %}">Voltar</a>
+</body>
+</html>
