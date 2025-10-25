@@ -22,6 +22,6 @@ def post_create(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'blog/post_form.html', {'form': form})
+    return render(request, 'blog/post_create.html', {'form': form})
 
 # Create your views here.
